@@ -1,23 +1,35 @@
-"use strict";
-import { sumavimas as sum, atimtis } from './components/sum.js';
+const titleDOM = document.getElementById('title');
+console.log(titleDOM.innerText);
+console.log(titleDOM.textContent);
 
-console.log('Labas rytas, Lietuva!');
+titleDOM.innerText = 'Kaip gaminami blynai?';
+titleDOM.textContent = 'Kaip gaminami blynai???';
 
-function sumavimas(a, b, c) {
-    return a + b + c + 0.1;
+const ingridientsDOM = document
+    .getElementsByTagName('ul')[0]
+    .getElementsByTagName('li');
+
+// const ingridients = [];
+
+// for (let i = 0; i < ingridientsDOM.length; i++) {
+//     const ingridientDOM = ingridientsDOM[i];
+//     ingridients.push(ingridientDOM.innerText);
+// }
+
+// for (const ingridientDOM of ingridientsDOM) {
+//     ingridients.push(ingridientDOM.innerText);
+// }
+
+const ingridients = [...ingridientsDOM].map(
+    ingridientDOM => ingridientDOM.innerText
+);
+
+console.log(ingridients);
+
+// [...ingridientsDOM].forEach(
+//     ingridientDOM => ingridientDOM.innerText += ' (???)'
+// );
+
+for (const ingridientDOM of ingridientsDOM) {
+    ingridientDOM.innerText += ' (???)';
 }
-
-console.log(sum(7, 5));
-console.log(sum(-7, 5));
-console.log(sum(7, -5));
-console.log(sum(-7, -5));
-
-console.log(sumavimas(7, 5));
-console.log(sumavimas(-7, 5));
-console.log(sumavimas(7, -5));
-console.log(sumavimas(-7, -5));
-
-console.log(atimtis(7, 5));
-console.log(atimtis(-7, 5));
-console.log(atimtis(7, -5));
-console.log(atimtis(-7, -5));
